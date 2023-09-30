@@ -1,0 +1,13 @@
+========================Client=========================================================
+
+
+
+
+
+=================================Server===================================================
+- npm init -y : intialize empty json
+- ES Modules (ESM): 
+   When you use "type": "module", your JavaScript files will be treated as ES modules. This means you can use import and export statements to load and export modules.
+
+- "start": "nodemon index.js" 
+   When use npm start, it will execute the nodemon command (root file name index.js)     
