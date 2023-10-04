@@ -17,7 +17,7 @@ const postSchema=mongoose.Schema({
 
 });
 
-
+// PostMessage is the collection name.
 const PostMessage =mongoose.model('PostMessage',postSchema);
 export default PostMessage;
 

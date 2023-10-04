@@ -1,5 +1,14 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
+//posts = []
 
+// also use as initialise
+//const initialState = {
+//   data: [],
+//   loading: false,
+//   error: null,
+// };
+// 
+// all data provide from reducer.
 const PostReducer =(posts = [], action) => {
   switch (action.type) {
     case FETCH_ALL:
