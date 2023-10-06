@@ -3,7 +3,7 @@ import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionType
 
 // also use as initialise
 //const initialState = {
-//   data: [],
+//   data: [], 
 //   loading: false,
 //   error: null,
 // };
@@ -19,6 +19,8 @@ const PostReducer =(posts = [], action) => {
       return [...posts, action.payload];
     case UPDATE:
       return posts.map((post) => (post._id === action.payload._id ? action.payload : post));
+
+      // return new array where not match
     case DELETE:
       return posts.filter((post) => post._id !== action.payload);
     default:

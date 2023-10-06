@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import FileBase from 'react-file-base64'; 
- 
+import FileBase from 'react-file-base64';
+
 import useStyles from './styles';
 import { createPost, updatePost } from '../../actions/posts';
 
@@ -16,9 +16,11 @@ const Form = ({ currentId, setCurrentId }) => {
 
   useEffect(() => {
     // if data is exist that means update then set the all data in useSelector
-    if (post) setPostData(post);
+    if (post)
+      setPostData(post);
   }, [post]);
 
+  // after click on clear 
   const clear = () => {
     setCurrentId(0);
     setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
@@ -32,18 +34,20 @@ const Form = ({ currentId, setCurrentId }) => {
     if (currentId === 0) {
       dispatch(createPost(postData));
       clear();
-    } 
+    }
     // otherwise update the post
     else {
       dispatch(updatePost(currentId, postData));
       clear();
     }
+    clear();
   };
 
   return (
     <Paper className={classes.paper}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-      {/*form name change Creating a Memory to update*/}
+        {/*form name change Creating a Memory to update, zero is consider as a false*/}
+ 
         <Typography variant="h6">{currentId ? `Editing "${post.title}"` : 'Creating a Memory'}</Typography>
 
         <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value })} />

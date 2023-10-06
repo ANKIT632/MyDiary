@@ -13,6 +13,8 @@ const App = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
+  // if update currentId to zero from From.js then app component are rerender also rerender post then show the change in post with reloding. 
+ 
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
@@ -20,12 +22,12 @@ const App = () => {
   return (
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">My Diary</Typography>
+        <Typography className={classes.heading} variant="h2" align="center">MyDiary</Typography>
         <img className={classes.image} src={memories} alt="icon" height="60" />
       </AppBar>
       <Grow in>
         <Container>
-          <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+          <Grid container  justifyContent="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={7}>
               <Posts setCurrentId={setCurrentId} />
             </Grid>

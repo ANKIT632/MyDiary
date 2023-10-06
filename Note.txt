@@ -11,3 +11,5 @@
 
 - "start": "nodemon index.js" 
    When use npm start, it will execute the nodemon command (root file name index.js)     
+
+- npm i dotenv
