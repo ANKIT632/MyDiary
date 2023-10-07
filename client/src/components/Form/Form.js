@@ -8,12 +8,12 @@ import { createPost, updatePost } from '../../actions/posts';
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
-
+  
   // for update and here find is the method of Array
   const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
-
+  
   useEffect(() => {
     // if data is exist that means update then set the all data in useSelector
     if (post)

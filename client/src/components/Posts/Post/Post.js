@@ -13,6 +13,15 @@ const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
+ const handleLike = () => {
+    dispatch(likePost(post._id)); // Dispatch the likePost action
+  };
+
+  const handleDelete = () => {
+    dispatch(deletePost(post._id)); // Dispatch the deletePost action
+  };
+
+
   return (
     <Card className={classes.card}>
       <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
@@ -31,9 +40,9 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
-        <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
-      </CardActions>
+      <Button size="small" color="primary" onClick={handleLike}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
+      <Button size="small" color="primary" onClick={handleDelete}><DeleteIcon fontSize="small" /> Delete</Button>
+    </CardActions>
     </Card>
   );
 };
