@@ -1,0 +1,1 @@
+MyDiary is MERN app
